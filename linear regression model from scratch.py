@@ -1,20 +1,19 @@
 #model linear regression 
+import matplotlib.pyplot as plt 
 from scipy.linalg import solve
-import matplotlib.pyplot as plt
+import numpy 
 
-import math
-#dataset
 y=[]
 x=[]
 x1=[]
 y2=[]
-for i in range (1000):
+for i in range (100):
     x.append(i)
     x1.append(i**2)
-    y.append(12*i-50)
+    y.append(2*i+numpy.random.randint(20,50))
     y2.append(x[i]*y[i])
 plt.figure(figsize=(10,6))
-plt.plot(x,y,color="r")
+plt.scatter(x,y,color="r")
 
 
 
@@ -32,9 +31,9 @@ def prediction(x,s):
     return s[1]*x+s[0]
 x_predict=[]
 y_predict=[]
-for i in range (1000):
+for i in range (150):
     x_predict.append(i)
     y_predict.append(prediction(i,s))
 
 
-plt.scatter(x_predict,y_predict,color="green")
+plt.plot(x_predict,y_predict,color="green")
